@@ -17,15 +17,15 @@ export class ListViewComponent implements OnInit {
     this.completedNotes = [];
     this.startedNotes = [];
   }
+  filterNotes(data: Array<Note>) {
+    this.notStartedNotes = data.filter((note) => note.state === 'not-started');
+    this.startedNotes = data.filter((note) => note.state === 'started');
+    this.completedNotes = data.filter((note) => note.state === 'completed');
+  }
   ngOnInit() {
     // Fetch Alle the notes
     this.noteService.getNotes().subscribe(res => {
       this.filterNotes(res);
     }, err => {});
-  }
-  filterNotes(data: Array<Note>) {
-    this.notStartedNotes = data.filter((note) => note.state === 'not-started');
-    this.startedNotes = data.filter((note) => note.state === 'started');
-    this.completedNotes = data.filter((note) => note.state === 'completed');
   }
 }
