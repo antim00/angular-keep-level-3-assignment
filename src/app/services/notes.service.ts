@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Note } from '../note';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from '../../../node_modules/rxjs/Observable';
@@ -8,7 +8,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/observable/from';
 
 @Injectable()
-export class NotesService {
+export class NotesService implements OnInit{
 
   notes: Array<Note>;
   notesSubject: BehaviorSubject<Array<Note>>;
@@ -18,6 +18,7 @@ export class NotesService {
       this.notes= [];
       this.notesSubject= new BehaviorSubject([]);
     }
+    ngOnInit(){}
 
   fetchNotesFromServer() {
     this.http.get<Array<Note>>('http://localhost:3000/api/v1/notes', {

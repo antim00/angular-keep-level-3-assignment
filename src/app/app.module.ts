@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule } from '@angular/material';
+import { MatListModule, MatSelectModule, MatDialogModule } from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -20,9 +21,11 @@ import { NotesService } from './services/notes.service';
 import { AuthenticationService } from './services/authentication.service';
 import { RouterService } from './services/router.service';
 import { NoteViewComponent } from './note-view/note-view.component';
+import { EditNoteViewComponent } from './edit-note-view/edit-note-view.component';
 import { ListViewComponent } from './list-view/list-view.component';
 import { NoteTakerComponent } from './note-taker/note-taker.component';
 import { NoteComponent } from './note/note.component';
+import { EditNoteOpenerComponent } from './edit-note-opener/edit-note-opener.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -32,6 +35,10 @@ const appRoutes: Routes = [
     },
     {
       path: 'view/listview', component: ListViewComponent
+    },
+    {
+      path: 'note/:noteId/edit',component:EditNoteOpenerComponent,
+      outlet : 'noteEditOutlet'
     },
     {
       path: '', redirectTo: 'view/notesview', pathMatch: 'full'
@@ -46,10 +53,12 @@ const appRoutes: Routes = [
     HeaderComponent,
     LoginComponent,
     DashboardComponent,
+    EditNoteOpenerComponent,
     ListViewComponent,
     NoteViewComponent,
     NoteTakerComponent,
-    NoteComponent
+    NoteComponent,
+    EditNoteViewComponent
   ],
   imports: [
     BrowserModule,
@@ -66,15 +75,18 @@ const appRoutes: Routes = [
     HttpClientModule,
     MatCardModule,
     FormsModule,
+    RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    MatSelectModule,
+    MatDialogModule,
   ],
   providers: [NotesService,
     AuthenticationService,
     RouterService,
     CanActivateRouteGuard
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ EditNoteViewComponent]
 })
 
 export class AppModule { }
