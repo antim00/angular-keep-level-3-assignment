@@ -5,7 +5,7 @@ import { Location } from '@angular/common';
 @Injectable()
 export class RouterService {
 
-  constructor(private router: Router, private location:Location) { }
+  constructor(private router: Router, private location: Location) { }
 
   routeToDashboard() {
     this.router.navigate(['dashboard']);
@@ -16,23 +16,20 @@ export class RouterService {
   }
 
   routeToEditNoteView(noteId) {
-    this.router.navigate(['dashboard',{
-      outlets:{
-        noteEditOutlet : ['note',noteId,'edit'] 
+    this.router.navigate(['dashboard', {
+      outlets: {
+        noteEditOutlet : ['note', noteId, 'edit']
       }
-    }])
+    }]);
   }
 
   routeBack() {
     this.location.back();
 
   }
-
   routeToNoteView() {
     this.router.navigate(['dashboard/view/noteview']);
-
   }
-
   routeToListView() {
     this.router.navigate(['dashboard/view/listview']);
   }

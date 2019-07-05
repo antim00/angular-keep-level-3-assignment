@@ -37,7 +37,7 @@ const appRoutes: Routes = [
       path: 'view/listview', component: ListViewComponent
     },
     {
-      path: 'note/:noteId/edit',component:EditNoteOpenerComponent,
+      path: 'note/:noteId/edit', component: EditNoteOpenerComponent,
       outlet : 'noteEditOutlet'
     },
     {

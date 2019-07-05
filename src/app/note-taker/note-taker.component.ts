@@ -19,7 +19,7 @@ export class NoteTakerComponent implements OnInit {
   }
 
   addNote() {
-    if (this.note.title !== '' && this.note.text !== ''){
+    if (this.note.title !== '' && this.note.text !== '') {
     this.notes.push(this.note);
     this.notesService.addNote(this.note).subscribe(res => {
       this.note = new Note();

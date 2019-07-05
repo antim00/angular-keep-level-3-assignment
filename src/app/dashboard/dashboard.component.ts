@@ -6,8 +6,8 @@ import { NotesService } from '../services/notes.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent{
-  constructor(private notesService : NotesService) {
+export class DashboardComponent {
+  constructor(private notesService: NotesService) {
     this.notesService.fetchNotesFromServer();
 }
 }

@@ -7,25 +7,25 @@ import { NotesService } from '../services/notes.service';
   templateUrl: './list-view.component.html',
   styleUrls: ['./list-view.component.css']
 })
-export class ListViewComponent implements OnInit{
+export class ListViewComponent implements OnInit {
 
   notStartedNotes: Array<Note>;
   startedNotes: Array<Note>;
   completedNotes: Array<Note>;
-  constructor(private noteService : NotesService){
+  constructor(private noteService: NotesService) {
     this.notStartedNotes = [];
     this.completedNotes = [];
     this.startedNotes = [];
   }
-  ngOnInit(){
+  ngOnInit() {
     // Fetch Alle the notes
-    this.noteService.getNotes().subscribe(res=>{
+    this.noteService.getNotes().subscribe(res => {
       this.filterNotes(res);
-    }, err=>{});
+    }, err => {});
   }
-  filterNotes(data: Array<Note>){
-    this.notStartedNotes = data.filter((note) => note.state ==='not-started');
-    this.startedNotes = data.filter((note) => note.state ==='started');
-    this.completedNotes = data.filter((note) => note.state ==='completed');
+  filterNotes(data: Array<Note>) {
+    this.notStartedNotes = data.filter((note) => note.state === 'not-started');
+    this.startedNotes = data.filter((note) => note.state === 'started');
+    this.completedNotes = data.filter((note) => note.state === 'completed');
   }
 }

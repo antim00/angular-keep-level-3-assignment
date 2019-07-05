@@ -21,7 +21,7 @@ export class AuthenticationService {
   isUserAuthenticated(token: string): Promise<boolean> {
     return this.httpClient.post<boolean>(`${this.authURL}isAuthenticated`, {}, {
       headers: new HttpHeaders().set('Authorization', `Bearer ${this.getBearerToken()}`)
-    }).map((res)=>{
+    }).map((res) => {
       return res['isAuthenticated'];
     })
     .toPromise();
