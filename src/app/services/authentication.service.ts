@@ -1,25 +1,30 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthenticationService {
 
-  constructor() {
-
+  private authURL = 'http://localhost:3000/auth/v1/';
+  constructor(private httpClient: HttpClient) { }
+  authenticateUser(user: any) {
+    return this.httpClient.post(this.authURL, user);
   }
 
-  authenticateUser(data) {
-
+  setBearerToken(token: string) {
+    localStorage.setItem('bearer token', token);
   }
-
-  setBearerToken(token) {
-
-  }
-
   getBearerToken() {
-
+    return localStorage.getItem('bearer token');
   }
 
-  isUserAuthenticated(token): Promise<boolean> {
-
+  isUserAuthenticated(token: string): Promise<boolean> {
+    return this.httpClient.post<boolean>(`${this.authURL}isAuthenticated`, {}, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${this.getBearerToken()}`)
+    }).map((res)=>{
+      return res['isAuthenticated'];
+    })
+    .toPromise();
   }
 }
+

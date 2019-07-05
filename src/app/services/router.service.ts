@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Injectable()
 export class RouterService {
 
-  routeToDashboard() {
+  constructor(private router: Router) { }
 
+  routeToDashboard() {
+    this.router.navigate(['dashboard']);
   }
 
   routeToLogin() {
-
+    this.router.navigate(['login']);
   }
 
   routeToEditNoteView(noteId) {
@@ -24,6 +27,5 @@ export class RouterService {
   }
 
   routeToListView() {
-    
   }
 }
