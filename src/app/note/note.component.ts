@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component,OnInit,Input } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { EditNoteViewComponent } from '../edit-note-view/edit-note-view.component';
 import { Note } from '../note';
 import { RouterService } from '../services/router.service';
-import { EditNoteViewComponent } from '../edit-note-view/edit-note-view.component';
 
 @Component({
   selector: 'app-note',

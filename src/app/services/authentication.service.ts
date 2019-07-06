@@ -5,8 +5,10 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AuthenticationService {
 
-  private authURL = 'http://localhost:3000/auth/v1/';
-  constructor(private httpClient: HttpClient) { }
+  private authURL: string;
+  constructor(private httpClient: HttpClient) {
+    this.authURL = 'http://localhost:3000/auth/v1/';
+  }
   authenticateUser(user: any) {
     return this.httpClient.post(this.authURL, user);
   }
