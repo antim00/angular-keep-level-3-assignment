@@ -1,11 +1,11 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Note } from '../note';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from '../../../node_modules/rxjs/Observable';
-import { HttpHeaders, HttpClient } from '../../../node_modules/@angular/common/http';
 import { AuthenticationService } from './authentication.service';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/observable/from';
+import { HttpClient, HttpHeaders } from '../../node_modules/@angular/common/http';
+import { Observable } from '../../node_modules/rxjs/Observable';
 
 @Injectable()
 export class NotesService implements OnInit {
@@ -39,7 +39,7 @@ addNote(note: Note): Observable<Note> {
         this.notesSubject.next(this.notes);
       });
   }
-editNote(note: Note): Observable<Note> {
+  editNote(note: Note): Observable<Note> {
     return this.http.put<Note>(`http://localhost:3000/api/v1/notes/${note.id}`, note, {
       headers : new HttpHeaders().set('Authorization', `Bearer ${this.authService.getBearerToken()}`)
     }).do(editedNote => {
@@ -48,12 +48,7 @@ editNote(note: Note): Observable<Note> {
        this.notesSubject.next(this.notes);
      });
   }
-getNoteById(noteId): Note {
-    console.log('note service note id******************** :', noteId);
-    console.log(this.notes);
-    const n = this.notes.find(note => note.id === noteId);
-    console.log(n);
-    return n;
-    // return note;
+  getNoteById(noteById): Note {
+    return this.notes.find(note => note.id == noteById);
   }
 }

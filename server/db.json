@@ -13,52 +13,22 @@
       "state": "started"
     },
     {
-      "title": "Capitalism",
-      "text": "Mark Twain",
       "id": 3,
-      "state": "completed"
+      "title": "Angula mat",
+      "text": "Track the new submissions",
+      "state": "started"
     },
     {
-      "title": "dasdasd",
-      "text": "ssddasdasd",
-      "state": "not-started",
-      "id": 4
+      "id": 4,
+      "title": "Buy Vegetables",
+      "text": "Track the new submissions",
+      "state": "started"
     },
     {
-      "title": "title5",
-      "text": "title5",
-      "state": "not-started",
-      "id": 5
-    },
-    {
-      "title": "title6",
-      "text": "title",
-      "state": "not-started",
-      "id": 6
-    },
-    {
-      "title": "trbhsdjs",
-      "text": "ddfsfs",
-      "state": "not-started",
-      "id": 7
-    },
-    {
-      "title": "sffgkldslgsfd",
-      "text": "sdfaslf",
-      "state": "not-started",
-      "id": 8
-    },
-    {
-      "title": "sdflsddfklsdflna",
-      "text": "ndfasdlfsadlfa",
-      "state": "not-started",
-      "id": 9
-    },
-    {
-      "title": "tsadffsdagsdaga",
-      "text": "dggdfgdfa",
-      "state": "not-started",
-      "id": 10
+      "id": 5,
+      "title": "Call Rain",
+      "text": "track somethning",
+      "state": "started"
     }
   ]
 }

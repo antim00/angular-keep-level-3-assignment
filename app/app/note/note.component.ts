@@ -12,11 +12,9 @@ import { RouterService } from '../services/router.service';
 export class NoteComponent {
   @Input()
   note: Note;
-  constructor(private router: RouterService) {
-  }
+  constructor(private router: RouterService) {}
   ngOnInit() {}
-  editNote() {
-   this.router.routeToEditNoteView(this.note.id);
-   console.log('editNote() from Note.. :', this.note);
+  openEditView() {
+    this.router.routeToEditNoteView(this.note.id);
   }
 }

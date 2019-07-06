@@ -1,0 +1,8 @@
+section.note-taker-section{
+    padding:1em;
+    width: 80vw;
+}
+div.note-taker-form-container{
+    display: flex;
+    flex-direction: column;
+}

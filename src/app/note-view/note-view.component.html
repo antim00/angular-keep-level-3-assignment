@@ -3,12 +3,9 @@
 	<label class="error-message">{{ errMessage }}</label>
   
 	<!-- Include the notes collection with each note rendered as a separate NoteComponent -->
-	<!--<div class="notes-cards-container">  ->
-		 fetch notes from db server and display here -->
-		<mat-card class="note-card" *ngFor="let note of notes">
-		  <mat-card-title>{{ note.title}}</mat-card-title>
-		  <mat-card-content>{{ note.text}}</mat-card-content>     
-		</mat-card>
-	<!--  </div> -->
+
+		 <!-- fetch notes from db server and display here -->
+		<app-note [note]="note" *ngFor="let note of notes" class="note-card"></app-note>
+	
 
 </div>
