@@ -3,14 +3,14 @@
     {
       "id": 1,
       "title": "Never Satisfy ",
-      "text": "never stop till done",
-      "state": "started"
+      "text": "you arre awesome",
+      "state": "completed"
     },
     {
       "id": 2,
-      "title": "Call Ravi",
-      "text": "Track the new submissions",
-      "state": "started"
+      "title": "Rain",
+      "text": "God Please Rain",
+      "state": "completed"
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "id": 4,
       "title": "Buy Vegetables",
       "text": "Track the new submissions",
-      "state": "started"
+      "state": "not-started"
     },
     {
       "id": 5,

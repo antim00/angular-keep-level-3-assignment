@@ -14,7 +14,6 @@ export class NoteComponent {
   note: Note;
   constructor(private router: RouterService) {
   }
-  ngOnInit() {}
   editNote() {
    this.router.routeToEditNoteView(this.note.id);
    console.log('editNote() from Note.. :', this.note);

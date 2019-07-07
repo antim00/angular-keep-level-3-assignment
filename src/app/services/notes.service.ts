@@ -49,7 +49,7 @@ editNote(note: Note): Observable<Note> {
      });
   }
 getNoteById(noteId): Note {
-    let c = parseInt(noteId);
-    return this.notes.find(note => note.id === c);
+    // const c = parseInt(noteId);
+    return this.notes.find(note => note.id === Number(noteId));
   }
 }

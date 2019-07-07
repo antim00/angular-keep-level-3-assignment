@@ -9,13 +9,12 @@ import { EditNoteViewComponent } from '../edit-note-view/edit-note-view.componen
   styleUrls: ['./edit-note-opener.component.css']
 })
 export class EditNoteOpenerComponent implements OnInit {
-  constructor(public dialog : MatDialog,
-    public activatedRoute : ActivatedRoute) {
+  constructor(public dialog: MatDialog,
+    public activatedRoute: ActivatedRoute) {
     const noteId = this.activatedRoute.snapshot.paramMap.get('noteId');
     this.dialog.open(EditNoteViewComponent, {
     data : noteId
-})
+});
 }
-ngOnInit(){
-}
+ngOnInit() {}
 }

@@ -13,24 +13,24 @@ export class EditNoteViewComponent implements OnInit, OnDestroy {
   note: Note;
   states: Array<string> = ['not-started', 'started', 'completed'];
   errMessage: string;
-  constructor(private noteService : NotesService,
-    private routeService : RouterService,
+  constructor(private noteService: NotesService,
+    private routeService: RouterService,
     private dialogRef: MatDialogRef<EditNoteViewComponent>,
-    @Inject(MAT_DIALOG_DATA) private data: any){
+    @Inject(MAT_DIALOG_DATA) private data: any) {
       this.note =  this.data;
     }
 
-  ngOnInit(){
+  ngOnInit() {
     this.note = this.noteService.getNoteById(this.data);
   }
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.routeService.routeBack();
   }
 
   onSave() {
-    this.noteService.editNote(this.note).subscribe(editedNote =>{
+    this.noteService.editNote(this.note).subscribe(editedNote => {
       this.dialogRef.close();
-    }, error =>{
+    }, error => {
       this.errMessage = error.message;
     });
   }
