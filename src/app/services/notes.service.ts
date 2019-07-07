@@ -49,11 +49,7 @@ editNote(note: Note): Observable<Note> {
      });
   }
 getNoteById(noteId): Note {
-    console.log('note service note id******************** :', noteId);
-    console.log(this.notes);
-    const n = this.notes.find(note => note.id === noteId);
-    console.log(n);
-    return n;
-    // return note;
+    let c = parseInt(noteId);
+    return this.notes.find(note => note.id === c);
   }
 }

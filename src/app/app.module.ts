@@ -86,7 +86,7 @@ const appRoutes: Routes = [
     CanActivateRouteGuard
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ EditNoteViewComponent]
+  entryComponents: [ EditNoteViewComponent ]
 })
 
 export class AppModule { }

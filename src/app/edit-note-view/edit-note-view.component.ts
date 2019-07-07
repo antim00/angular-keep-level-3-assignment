@@ -17,6 +17,7 @@ export class EditNoteViewComponent implements OnInit, OnDestroy {
     private routeService : RouterService,
     private dialogRef: MatDialogRef<EditNoteViewComponent>,
     @Inject(MAT_DIALOG_DATA) private data: any){
+      this.note =  this.data;
     }
 
   ngOnInit(){
